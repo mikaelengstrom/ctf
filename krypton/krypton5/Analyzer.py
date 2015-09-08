@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from itertools import cycle
 from decipher import int_to_letter
 from decipher import letter_to_int
@@ -52,14 +54,14 @@ class Printer(object):
     def __init__(self, data):
         self.data = data
 
-    def print(self):
+    def prnt(self):
         for key, result in enumerate(self.data):
             print("Printing analyzis of key: %s" % key)
             self.print_one_result(result)
 
     def print_one_result(self, result):
         for c in sorted(result, key=lambda x: result[x]['count'], reverse=True):
-            print("%s : %02d - Best guess: %s – int: %02d" % (c, result[c]['count'], result[c]['best_guess'], letter_to_int(c)))
+            print(u"%s : %02d - Best guess: %s – int: %02d" % (c, result[c]['count'], result[c]['best_guess'], letter_to_int(c)))
 
 
 data_sets = []
@@ -70,4 +72,4 @@ for file_name in ['found1', 'found2', 'krypton5']:
 
 analyzer = Analyzer(data_sets, 6)
 data = analyzer.count_letters()
-Printer(data).print()
+Printer(data).prnt()
