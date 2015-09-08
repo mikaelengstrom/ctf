@@ -14,30 +14,30 @@ def int_to_letter(int):
 
 key = [0, -12, 1, -5, 1, 7]
 cipher = {
-    'J': 'e', #
-    'Y': 't', #
-    'T': 'o',
-    'M': 'h',
-    'W': 'l',
-    'F': 'a',
-    'X': 'i',
-    'S': 'n',
-    'I': 'd',
-    'N': 's',
-    'Q': 'm',
-    'B': 'u',
-    'K': 'c',
-    'Z': 'r',
-    'H': 'w',
-    'D': 'f',
-    'L': 'y',
-    'R': 'g',
-    'U': 'p',
-    'P': 'b',
-    'G': 'v',
-    'A': 'k',
-    'O': 'j',
-    'C': 'x', #
+    'J': 'E', 
+    'Y': 'T', 
+    'T': 'O', 
+    'M': 'H', 
+    'W': 'R', 
+    'F': 'A', 
+    'X': 'S',
+    'S': 'N', 
+    'I': 'D',
+    'N': 'I',
+    'Q': 'L', 
+    'B': 'W',
+    'K': 'F', 
+    'Z': 'U',
+    'H': 'C', 
+    'D': 'Y',
+    'L': 'G',
+    'R': 'M',
+    'U': 'P',
+    'P': 'K', #
+    'G': 'B',
+    'A': 'V',
+    'O': 'J',
+    'C': 'X', 
     'E': 'q',
     'V': 'z',
 }
@@ -45,7 +45,7 @@ cipher = {
 def swap(c):
     return cipher[c.upper()]
 
-with open('found1', 'r') as file:
+with open('found2', 'r') as file:
     data = file.read().replace(' ', '')
     #data = 'JVIOIC'
     row = ['', '']
