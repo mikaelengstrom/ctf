@@ -12,45 +12,45 @@ def int_to_letter(int):
     return alphabet[int]
 
 
-key = [0, -12, 1, -5, 1, 7]
+key = [0, 6, 12, -1, 6, -3, 4, 17, 3]
 cipher = {
-    'J': 'E', 
-    'Y': 'T', 
-    'T': 'O', 
-    'M': 'H', 
-    'W': 'R', 
-    'F': 'A', 
-    'X': 'S',
-    'S': 'N', 
-    'I': 'D',
-    'N': 'I',
-    'Q': 'L', 
-    'B': 'W',
-    'K': 'F', 
-    'Z': 'U',
-    'H': 'C', 
-    'D': 'Y',
-    'L': 'G',
-    'R': 'M',
-    'U': 'P',
-    'P': 'K', #
-    'G': 'B',
-    'A': 'V',
-    'O': 'J',
-    'C': 'X', 
-    'E': 'q',
-    'V': 'z',
+   'O': 'E',
+   'D': 'T',
+   'K': 'A',
+   'Y': 'O', #
+   'R': 'H',
+   'C': 'S',
+   'B': 'R',
+   'S': 'I',
+   'X': 'N',
+   'V': 'L',
+   'N': 'D',
+   'P': 'F',
+   'M': 'C', #
+   'Q': 'G',
+   'E': 'U',
+   'G': 'W', #
+   'W': 'M',
+   'F': 'V',
+   'L': 'B',
+   'I': 'Y',
+   'Z': 'P',
+   'A': 'Q',
+   'U': 'K',
+   'H': 'X',
+   'J': 'Z',
+   'T': 'J'
 }
 
 def swap(c):
     return cipher[c.upper()]
 
-with open('found2', 'r') as file:
+with open('krypton6', 'r') as file:
     data = file.read().replace(' ', '')
-    #data = 'JVIOIC'
+    ##data = 'OICPIRKXLOICPIRKXL'
     row = ['', '']
     total = ''
-    for c, pos in zip(data, cycle(range(0, 6))):
+    for c, pos in zip(data, cycle(range(0, 9))):
         diff = key[pos]
         letter_as_int = letter_to_int(c) + diff
         deciphered = swap(int_to_letter(letter_as_int))
@@ -58,7 +58,7 @@ with open('found2', 'r') as file:
         row[1] += str(pos) + ' '
         total += deciphered
 
-        if (pos is 5):
+        if (pos is 8):
             print(row[0])
             #print(row[1])
             row = ['', '']

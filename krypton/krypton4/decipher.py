@@ -45,7 +45,7 @@ cipher = {
 def swap(c):
     return cipher[c.upper()]
 
-with open('found2', 'r') as file:
+with open('found1', 'r') as file:
     data = file.read().replace(' ', '')
     #data = 'JVIOIC'
     row = ['', '']

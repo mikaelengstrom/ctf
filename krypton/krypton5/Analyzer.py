@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from __future__ import division
 
 from itertools import cycle
 from decipher import int_to_letter
@@ -60,11 +61,20 @@ class Printer(object):
         for key, result in enumerate(self.data):
             print("Printing analyzis of key: %s" % key)
             self.print_one_result(result)
-            print 
+            print
 
-        print 'e: %s, t: %s, z: %s, q:%s' % (self.total_per_char['e'], self.total_per_char['t'], self.total_per_char['z'], self.total_per_char['q'])
+        print 'e: %.2f, t: %.2f, q: %.2f, z:%.2f' % (
+            self.percent_of_total(self.total_per_char['e']),
+            self.percent_of_total(self.total_per_char['t']),
+            self.percent_of_total(self.total_per_char['q']),
+            self.percent_of_total(self.total_per_char['z'])
+        )
+        print 'optimal: '
+        print 'e: 12.70, t: 9.05, q: 0.09, z: 0.07'
         print 'total count: %s' % self.total_count
 
+    def percent_of_total(self, x):
+        return (x / self.total_count) * 100
 
     def print_one_result(self, result):
         for c in sorted(result, key=lambda x: result[x]['count'], reverse=True):
@@ -82,6 +92,6 @@ for file_name in ['found1', 'found2', 'found3', 'krypton6']:
         data_sets.append(file.read())
 
 
-analyzer = Analyzer(data_sets, 10)
+analyzer = Analyzer(data_sets, 9)
 data = analyzer.count_letters()
 Printer(data).prnt()
